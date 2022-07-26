@@ -6,6 +6,11 @@ import 'package:meditation_app/services/size_config.dart';
 
 
 class GoogleButton extends StatelessWidget{
+  final VoidCallback onClicked;
+  const GoogleButton({
+    Key? key,
+    required this.onClicked,
+  }) : super(key: key);
   Widget build(BuildContext context){
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
@@ -37,7 +42,7 @@ class GoogleButton extends StatelessWidget{
         )
       ],),
 
-        onPressed: (){},
+        onPressed: onClicked,
     );
 
   }

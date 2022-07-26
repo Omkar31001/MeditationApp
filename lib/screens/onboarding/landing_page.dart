@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 import 'package:meditation_app/screens/onboarding/signup_page.dart';
 import 'package:meditation_app/services/size_config.dart';
 import 'package:meditation_app/custom_widgets/button_1.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LandingPage extends StatelessWidget {
   Widget build(BuildContext context) {
+
     SizeConfig().init(context);
     return SafeArea(
       child: Scaffold(
@@ -22,7 +23,7 @@ class LandingPage extends StatelessWidget {
             Column(
               // mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 50.0,
                 ),
                 Align(
@@ -52,7 +53,7 @@ class LandingPage extends StatelessWidget {
                   height: SizeConfig.safeVertical! * 0.61,
                 ),
                 Button1(
-                  title: 'Login with Spotify',
+                  title: 'SignUp',
                   onClicked: () {
                     Navigator.push(
                       context,
@@ -96,3 +97,14 @@ class LandingPage extends StatelessWidget {
     );
   }
 }
+// onSelected(BuildContext context, String item) {
+//   switch(item){
+//     case "One":
+//       print('Seeing my profile now');
+//       break;
+//     case 'Two':
+//       signOut()
+//       print("Going to Sign out...");
+//       break;
+//   }
+// }

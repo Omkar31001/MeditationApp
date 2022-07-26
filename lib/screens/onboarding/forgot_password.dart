@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -17,12 +18,11 @@ class ForogotPassword extends StatefulWidget {
 
 class _ForogotPasswordState extends State<ForogotPassword> {
   final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final auth  = FirebaseAuth.instance;
 
   @override
   void dispose() {
     emailController.dispose();
-    passwordController.dispose();
 
     super.dispose();
   }
@@ -67,7 +67,10 @@ class _ForogotPasswordState extends State<ForogotPassword> {
                   ),
                   Button1(
                     title: "Continue",
-                    onClicked: () {},
+                    onClicked: ()  =>{
+                       auth.sendPasswordResetEmail(email:emailController.text),
+                      Navigator.of(context).pop(),
+                  },
                   ),
 
                 ],
